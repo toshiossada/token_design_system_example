@@ -41,104 +41,102 @@ class FAppTypographyData extends BaseTokenParser<FAppTypography, TextStyle> {
   Map<FAppTypography, TextStyle> get data => {
         FAppTypography.headline1: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_26),
+          fontSize: sizes.getByToken(FAppSize.s26),
           fontWeight: FontWeight.w700,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.headline2: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_26),
+          fontSize: sizes.getByToken(FAppSize.s26),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.headline3: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_20),
+          fontSize: sizes.getByToken(FAppSize.s20),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.headline4: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_20),
+          fontSize: sizes.getByToken(FAppSize.s20),
           fontWeight: FontWeight.w500,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body1: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_18),
+          fontSize: sizes.getByToken(FAppSize.s18),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body2: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_18),
+          fontSize: sizes.getByToken(FAppSize.s18),
           fontWeight: FontWeight.w500,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body3: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_16),
+          fontSize: sizes.getByToken(FAppSize.s16),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body4: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_16),
+          fontSize: sizes.getByToken(FAppSize.s16),
           fontWeight: FontWeight.w500,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body5: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_14),
+          fontSize: sizes.getByToken(FAppSize.s14),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body6: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_14),
+          fontSize: sizes.getByToken(FAppSize.s14),
           fontWeight: FontWeight.w500,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body7: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_12),
+          fontSize: sizes.getByToken(FAppSize.s12),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.body8: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_12),
+          fontSize: sizes.getByToken(FAppSize.s12),
           fontWeight: FontWeight.w500,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.captionSmall1: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_10),
+          fontSize: sizes.getByToken(FAppSize.s10),
           fontWeight: FontWeight.w500,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.captionSmall2: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_8),
+          fontSize: sizes.getByToken(FAppSize.s8),
           fontWeight: FontWeight.w500,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.captionSmall3: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_10),
+          fontSize: sizes.getByToken(FAppSize.s10),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
         FAppTypography.captionSmall4: TextStyle(
           fontFamily: Constants.defaultFontFamily,
-          fontSize: sizes.getByToken(FAppSize.s_8),
+          fontSize: sizes.getByToken(FAppSize.s8),
           fontWeight: FontWeight.w600,
           height: Constants.defaultFontHeight,
         ),
       };
-  const FAppTypographyData({
-    super.defaultData = FAppTypography.headline1,
-  });
+  const FAppTypographyData();
 
   TextStyle getByTokenWithColor(
     FAppTypography token, {

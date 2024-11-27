@@ -26,7 +26,5 @@ final class FAppElevationData extends BaseTokenParser<FAppElevation, int> {
         FAppElevation.smNegative: 24,
         FAppElevation.lg: 40,
       };
-  const FAppElevationData({
-    super.defaultData = FAppElevation.xxs,
-  });
+  const FAppElevationData();
 }

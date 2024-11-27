@@ -6,13 +6,10 @@ import 'get_token_interface.dart';
 abstract class BaseTokenParser<F extends BaseToken, T>
     implements HGetTokenInterface<F, T> {
   Map<F, T> get data;
-  final F defaultData;
 
   Type get tokenType => F;
 
-  const BaseTokenParser({
-    required this.defaultData,
-  });
+  const BaseTokenParser();
 
   @override
   T getByToken(F token) {
@@ -21,14 +18,15 @@ abstract class BaseTokenParser<F extends BaseToken, T>
   }
 
   @override
-  F? getByName(String name) {
+  F getByName(String name) {
     final result = data.entries
         .firstWhereOrNull((element) => element.key.token == name)
         ?.key;
 
+    if (result == null) throw Exception('Token not found: $name');
+
     return result;
   }
 
-  @override
-  F getDefaultToken() => defaultData;
+
 }

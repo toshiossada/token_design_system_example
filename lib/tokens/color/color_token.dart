@@ -77,7 +77,5 @@ final class FAppColorData extends BaseTokenParser<FAppColor, Color> {
         FAppColor.backgroundModal: Color(0x007A8590),
         FAppColor.backgroundLoading: Color(0x007A8590),
       };
-  const FAppColorData({
-    super.defaultData = FAppColor.white,
-  });
+  const FAppColorData();
 }

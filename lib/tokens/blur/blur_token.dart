@@ -25,7 +25,5 @@ final class FAppBlurData extends BaseTokenParser<FAppBlur, int> {
         FAppBlur.lg: 48,
         FAppBlur.xl: 64
       };
-  const FAppBlurData({
-    super.defaultData = FAppBlur.xs,
-  });
+  const FAppBlurData();
 }
