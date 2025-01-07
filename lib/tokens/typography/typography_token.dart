@@ -30,6 +30,11 @@ enum FAppTypography implements BaseToken {
 
   @override
   final String token;
+
+  static FAppTypography getByToken(String token) =>
+      FAppTypography.values.firstWhere((e) => e.token == token);
+  static bool anyToken(String token) =>
+      FAppTypography.values.any((e) => e.token == token);
 }
 
 class FAppTypographyData extends BaseTokenParser<FAppTypography, TextStyle> {
@@ -38,7 +43,7 @@ class FAppTypographyData extends BaseTokenParser<FAppTypography, TextStyle> {
 
   final sizes = const FAppSizeData();
   @override
-  Map<FAppTypography, TextStyle> get data => {
+  Map<FAppTypography, TextStyle> get defaultData => {
         FAppTypography.headline1: TextStyle(
           fontFamily: Constants.defaultFontFamily,
           fontSize: sizes.getByToken(FAppSize.s26),
@@ -136,7 +141,11 @@ class FAppTypographyData extends BaseTokenParser<FAppTypography, TextStyle> {
           height: Constants.defaultFontHeight,
         ),
       };
-  const FAppTypographyData();
+
+  const FAppTypographyData([super.newData]);
+  factory FAppTypographyData.fromMap(Map<String, dynamic> json) {
+    return const FAppTypographyData({});
+  }
 
   TextStyle getByTokenWithColor(
     FAppTypography token, {

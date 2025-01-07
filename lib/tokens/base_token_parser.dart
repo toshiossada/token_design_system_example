@@ -5,11 +5,21 @@ import 'get_token_interface.dart';
 
 abstract class BaseTokenParser<F extends BaseToken, T>
     implements HGetTokenInterface<F, T> {
-  Map<F, T> get data;
+  Map<F, T> get data {
+    return defaultData.map((key, value) {
+      if (_newData.containsKey(key)) {
+        return MapEntry(key, _newData[key] as T);
+      }
+      return MapEntry(key, value);
+    });
+  }
+
+  Map<F, T> get defaultData;
+  final Map<F, T> _newData;
 
   Type get tokenType => F;
 
-  const BaseTokenParser();
+  const BaseTokenParser([this._newData = const {}]);
 
   @override
   T getByToken(F token) {
@@ -27,6 +37,4 @@ abstract class BaseTokenParser<F extends BaseToken, T>
 
     return result;
   }
-
-
 }

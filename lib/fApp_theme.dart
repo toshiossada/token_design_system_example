@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import 'tokens/blur/blur_token.dart';
@@ -52,7 +55,16 @@ class FAPPTheme extends ThemeExtension<FAPPTheme> {
     );
   }
 
-  // Optional
-  @override
-  String toString() => 'FAPPTheme(fAppColors: $colors)';
+  factory FAPPTheme.fromMap(Map<String, dynamic> map) {
+    return FAPPTheme(
+      colors: FAppColorData.fromMap(map['colors'] ?? {}),
+      blurs: FAppBlurData.fromMap(map['blurs'] ?? {}),
+      elevations: FAppElevationData.fromMap(map['elevations'] ?? {}),
+      sizes: FAppSizeData.fromMap(map['sizes'] ?? {}),
+      typography: FAppTypographyData.fromMap(map['typography'] ?? {}),
+    );
+  }
+
+  factory FAPPTheme.fromJson(String source) =>
+      FAPPTheme.fromMap(json.decode(source) as Map<String, dynamic>);
 }

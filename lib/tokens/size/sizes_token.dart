@@ -84,11 +84,16 @@ enum FAppSize implements BaseToken {
 
   @override
   final String token;
+
+  static FAppSize getByToken(String token) =>
+      FAppSize.values.firstWhere((e) => e.token == token);
+  static bool anyToken(String token) =>
+      FAppSize.values.any((e) => e.token == token);
 }
 
 class FAppSizeData extends BaseTokenParser<FAppSize, double> {
   @override
-  Map<FAppSize, double> get data => {
+  Map<FAppSize, double> get defaultData => {
         FAppSize.s06: 0.6.sp,
         FAppSize.s0: 0.sp,
         FAppSize.s1: 1.sp,
@@ -152,5 +157,8 @@ class FAppSizeData extends BaseTokenParser<FAppSize, double> {
         FAppSize.s360: 360.sp,
         FAppSize.s375: 375.sp,
       };
-  const FAppSizeData();
+  const FAppSizeData([super.newData]);
+  factory FAppSizeData.fromMap(Map<String, dynamic> json) {
+    return const FAppSizeData({});
+  }
 }
