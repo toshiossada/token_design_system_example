@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tokens_playground/app/modules/core/app_store.dart';
 
-import '../../../fApp_theme.dart';
+import '../../../fapp_theme.dart';
 import '../../../tokens/color/color_token.dart';
 
 class MyHomePage extends StatefulWidget {

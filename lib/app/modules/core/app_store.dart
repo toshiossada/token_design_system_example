@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tokens_playground/flavor.dart';
 
-import '../../../fApp_theme.dart';
-import '../../../tokens/blur/blur_token.dart';
-import '../../../tokens/color/color_token.dart';
-import '../../../tokens/elevation/elevation_token.dart';
-import '../../../tokens/size/sizes_token.dart';
-import '../../../tokens/typography/typography_token.dart';
+import '../../../fapp_theme.dart';
 
 class AppStore {
-  final ValueNotifier<FAPPTheme> _theme = ValueNotifier<FAPPTheme>(
-    const FAPPTheme(
-      colors: FAppColorData(),
-      blurs: FAppBlurData(),
-      elevations: FAppElevationData(),
-      sizes: FAppSizeData(),
-      typography: FAppTypographyData(),
-    ),
-  );
+  final ValueNotifier<FAPPTheme> _theme =
+      ValueNotifier<FAPPTheme>(FlavorConfig.instance.flavor.theme);
 
   set theme(FAPPTheme value) {
     _theme.value = value;

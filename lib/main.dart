@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modular_di/modular_di.dart';
+import 'package:tokens_playground/flavor.dart';
 
 import 'app/modules/core/app_store.dart';
 import 'app/modules/core/core_module.dart';
@@ -8,7 +9,7 @@ import 'app_module.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await FlavorConfig.instance.init();
   //Register and initialize modules
   await ModulesManager.instance.initModules([
     CoreModule(),

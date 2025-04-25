@@ -37,6 +37,39 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    buildFeatures {
+        buildConfig = true // necessário para usar buildConfigField nos flavors
+    }
+
+    flavorDimensions += "flavor" // Define o grupo de sabores (flavors) chamado "flavor"
+
+        productFlavors {
+        create("app1") { 
+            dimension = "flavor" // Associa à dimensão "flavor"
+            applicationIdSuffix = ".app1" // Sufixo no ID do app
+            versionNameSuffix = "-app1" // Sufixo na versão do app
+            resValue("string", "app_name", "App Abacaxi") // Define nome do app para esse flavor
+            manifestPlaceholders["flavorName"] = "app1" // Placeholder para usar no AndroidManifest.xml
+            buildConfigField("String", "FLAVOR_NAME", "\"app1\"") // Campo de build acessível via código
+        }
+        create("app2") {
+            dimension = "flavor"
+            applicationIdSuffix = ".app2"
+            versionNameSuffix = "-app2"
+            resValue("string", "app_name", "App app2")
+            manifestPlaceholders["flavorName"] = "app2"
+            buildConfigField("String", "FLAVOR_NAME", "\"app2\"")
+        }
+        create("app3") {
+            dimension = "flavor"
+            applicationIdSuffix = ".app3"
+            versionNameSuffix = "-app3"
+            resValue("string", "app_name", "App app3")
+            manifestPlaceholders["flavorName"] = "app3"
+            buildConfigField("String", "FLAVOR_NAME", "\"app3\"")
+        }
+    }
 }
 
 flutter {
