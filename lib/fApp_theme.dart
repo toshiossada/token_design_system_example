@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-import 'tokens/blur/blur_token.dart';
-import 'tokens/color/color_token.dart';
-import 'tokens/elevation/elevation_token.dart';
-import 'tokens/size/sizes_token.dart';
-import 'tokens/typography/typography_token.dart';
+import 'package:flutter/material.dart';
+import 'package:tokens_playground/tokens/base_token.dart';
+import 'package:tokens_playground/tokens/base_token_parser.dart';
+
+import 'tokens/app1/app1.dart';
+import 'tokens/app2/app2.dart';
+import 'tokens/app3/app3.dart';
 
 class FAPPTheme extends ThemeExtension<FAPPTheme> {
   const FAPPTheme({
@@ -15,19 +17,43 @@ class FAPPTheme extends ThemeExtension<FAPPTheme> {
     required this.typography,
   });
 
-  final FAppColorData colors;
-  final FAppBlurData blurs;
-  final FAppElevationData elevations;
-  final FAppSizeData sizes;
-  final FAppTypographyData typography;
+  final BaseTokenParser<BaseToken, Color> colors;
+  final BaseTokenParser<BaseToken, int> blurs;
+  final BaseTokenParser<BaseToken, int> elevations;
+  final BaseTokenParser<BaseToken, double> sizes;
+  final BaseTokenParser<BaseToken, TextStyle> typography;
+
+  static const app1 = FAPPTheme(
+    colors: FAppColorData(),
+    blurs: FAppBlurData(),
+    elevations: FAppElevationData(),
+    sizes: FAppSizeData(),
+    typography: FAppTypographyData(),
+  );
+
+  static const app2 = FAPPTheme(
+    colors: App2ColorData(),
+    blurs: App2BlurData(),
+    elevations: App2ElevationData(),
+    sizes: App2SizeData(),
+    typography: App2TypographyData(),
+  );
+
+  static const app3 = FAPPTheme(
+    colors: App3ColorData(),
+    blurs: App3BlurData(),
+    elevations: App3ElevationData(),
+    sizes: App3SizeData(),
+    typography: App3TypographyData(),
+  );
 
   @override
   FAPPTheme copyWith({
-    FAppColorData? colors,
-    FAppBlurData? blurs,
-    FAppElevationData? elevations,
-    FAppSizeData? sizes,
-    FAppTypographyData? typography,
+    BaseTokenParser<BaseToken, Color>? colors,
+    BaseTokenParser<BaseToken, int>? blurs,
+    BaseTokenParser<BaseToken, int>? elevations,
+    BaseTokenParser<BaseToken, double>? sizes,
+    BaseTokenParser<BaseToken, TextStyle>? typography,
   }) {
     return FAPPTheme(
       colors: colors ?? this.colors,
@@ -52,7 +78,16 @@ class FAPPTheme extends ThemeExtension<FAPPTheme> {
     );
   }
 
-  // Optional
-  @override
-  String toString() => 'FAPPTheme(fAppColors: $colors)';
+  factory FAPPTheme.fromMap(Map<String, dynamic> map) {
+    return FAPPTheme(
+      colors: FAppColorData.fromMap(map['colors'] ?? {}),
+      blurs: FAppBlurData.fromMap(map['blurs'] ?? {}),
+      elevations: FAppElevationData.fromMap(map['elevations'] ?? {}),
+      sizes: FAppSizeData.fromMap(map['sizes'] ?? {}),
+      typography: FAppTypographyData.fromMap(map['typography'] ?? {}),
+    );
+  }
+
+  factory FAPPTheme.fromJson(String source) =>
+      FAPPTheme.fromMap(json.decode(source) as Map<String, dynamic>);
 }
