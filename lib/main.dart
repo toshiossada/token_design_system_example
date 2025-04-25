@@ -4,7 +4,6 @@ import 'package:modular_di/modular_di.dart';
 import 'app/modules/core/app_store.dart';
 import 'app/modules/core/core_module.dart';
 import 'app/modules/home/home_module.dart';
-import 'app/modules/home/home_page.dart';
 import 'app_module.dart';
 
 Future<void> main() async {
@@ -44,11 +43,7 @@ class MyApp extends StatelessWidget {
                     initialRoute: '/',
                     routes: {
                       '/': (context) {
-                        return ModuleWidget<HomeModule>(
-                          child: MyHomePage(
-                            appStore: Module.get<AppStore>(context),
-                          ),
-                        );
+                        return HomeModule.child(context);
                       },
                     },
                   );
